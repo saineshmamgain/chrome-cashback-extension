@@ -1,0 +1,78 @@
+{
+  "name": "CashBack",
+  "version": "0.1",
+  "manifest_version": 2,
+  "short_name": "CashBack",
+  "description": "CashBack Extension",
+  "browser_action": {
+    "default_icon": "assets/images/logo.png",
+    "default_title": "CashBack"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "http://*.bing.com/*",
+        "http://*.yahoo.com/*",
+        "https://*.yahoo.com/*",
+        "https://*.google.com/*",
+        "https://*.google.co.in/*"
+      ],
+      "js": [
+        "assets/js/content.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.google.com/*",
+        "https://*.google.co.in/*"
+      ],
+      "js": [
+        "assets/js/content.js"
+      ]
+    },
+    {
+      "matches": [
+        "http://*.yahoo.com/*",
+        "https://*.yahoo.com/*"
+      ],
+      "js": [
+        "assets/js/content.js"
+      ]
+    },
+    {
+      "matches": [
+        "http://*.bing.com/*",
+        "https://*.bing.com/*"
+      ],
+      "js": [
+        "assets/js/content.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "<all_urls>",
+    "storage",
+    "management"
+  ],
+  "icons": {
+    "128": "assets/images/logo128.png",
+    "64": "assets/images/logo64.png",
+    "48": "assets/images/logo48.png",
+    "24": "assets/images/logo24.png",
+    "32": "assets/images/logo32.png",
+    "16": "assets/images/logo16.png"
+  },
+  "web_accessible_resources": [
+    "assets/*"
+  ]
+}

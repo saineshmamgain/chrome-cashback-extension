@@ -1,0 +1,456 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {font-family:Tahoma, Geneva, sans-serif; font-size:12px;
+    --main-color: #f30;
+    --second-color: #f30;
+    --link-color: #23ae4a;
+    --link-hover-color: #23ae4a;
+    --store-deal-exp-color: #f30;
+    --tab-btn-color: #657B90;
+    --popup-header-color: #23ae4a;
+    --popup-header-label-color: #fff;
+    --popup-header-reward-color: #fff;
+    --popup-header-link-color: #fff;
+    --cashback-balance-color: #fff;
+    --logo-url: url(../images/ebates-logo.jpg);
+}
+
+
+.ebates_wrap { width:380px; height:490px; border:solid 1px #ababab; border-radius:3px;}
+
+.header-wrap { background:#23ae4a; height:60px; padding:8px 6px; box-sizing:border-box;}
+.header-wrap .main-logo { float:left; width:161px; display:block;}
+.header-wrap .total-earn, .header-wrap .cash-back { width:88px; color:#FFF; font-size:12px; float:left; border-right:solid 1px #60c05d; text-align:center; height: 43px;}
+.header-wrap .total-earn span, .header-wrap .cash-back span { font-size:15px; font-weight:bold; display:block; margin-bottom:3px;}
+
+.header-wrap .cash-back { width:118px; border:none;}
+
+.ebates-tab { width:100%;}
+nav.ebates-tab ul { width:100%; height:35px; border-bottom:solid 1px #d3d3d3; border-top:solid 1px #d3d3d3; padding:0; margin:0;}
+nav.ebates-tab ul li { list-style:none;}
+nav.ebates-tab ul li a { text-decoration:none; display:block; width:33.33%; float:left; text-align:center; line-height:33px; font-size:17px;color:#657b90;}
+
+nav.ebates-tab ul li a:hover { color:#23ae4a; border-bottom:solid 3px #23ae4a;}
+
+nav.ebates-tab ul li a.active { color:#23ae4a; border-bottom:solid 3px #23ae4a;}
+.tab-area { width:100%; height:363px; background:#f1f1f1}
+
+
+#mydeals { padding-top:12px; height: 351px;
+    overflow: auto; }
+
+    #myorders { padding-top:12px; height: 351px; 
+        overflow: auto; }
+
+        .eb-module { margin-top: 40px; font-size: 14px; color: #000; font-weight: 600; text-align: center; padding: 0 10px;}
+
+    
+
+
+#mydeals .search-wrap { width:97%; height:32px; background:#fff; border:solid 1px #cccccc; border-radius:3px; margin:0 auto 12px;}
+#mydeals .search-wrap input[type="text"] { width:86%; float:left; height:32px; line-height:32px; font-size:14px; color:#999; padding:0 7px; border:0; border-radius:3px;}
+#mydeals .search-wrap .search-icon { width:8%; float:right; background:#465a65; height:32px; cursor:pointer; border-radius:0px 3px 3px 0px;position:relative;}
+
+#mydeals .search-wrap .search-icon > img { position:absolute; margin:auto; top:0; left:0; right:0; bottom:0;}
+
+
+
+.ebates_wrap footer { height:30px; border-top:solid 1px #ababab;}
+
+
+h2.list-header {
+    color: #465a65;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: top;
+    padding: 8px 0;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h2.list-header:before {
+    border-top: 1px solid #ccc;
+    content: "";
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+h2.list-header span {
+    background-color: #F1F1F1;
+    padding: 0 4px;
+    cursor: default;
+}
+
+
+.daily-deal-item {
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    border-radius: 3px;
+    color: #999;
+    background-color: #fff;
+}
+
+.deal-item {
+    flex: 1;
+    cursor: pointer;
+    
+    box-sizing: border-box;
+    margin: 4px 6px;
+    padding: 8px;
+}
+
+.daily-deal-item .header {
+    padding: 8px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+}
+	
+	
+	.daily-deal-item .header .store-logo {
+    width: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+}
+
+.daily-deal-item .header .activate-button {
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    transition: .3s;
+    font-size: 14px;
+   
+    min-width: 150px;
+    line-height: 20px;
+    padding: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.deal-item .deal-text {
+    -webkit-touch-callout: initial;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    font-size: 14px;
+    color: #999;
+}
+
+.deal-item>div {
+    padding: 4px;
+}
+
+
+.daily-deal-item:hover .activate-button {
+    color: #fff;
+    background-color: var(--main-color);
+}
+
+.deal-item .footer {
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.deal-item hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 4px;
+}
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+}
+
+
+.store-deal-item .footer .code-value{
+    -webkit-touch-callout: initial;
+    -webkit-user-select:text;
+    -khtml-user-select:text;
+    -moz-user-select:text;
+    -ms-user-select:text;
+    user-select:text;
+    color:#333;
+    font-weight:600;
+    border:1px dashed #999;
+    cursor:default
+}
+
+
+#tafPanel{
+    font-weight:400;
+    cursor:default;
+    height:100%;
+    position:relative;
+    padding:0;
+    color:#333
+}
+#tafPanel .offer-header{
+    height:181px
+}
+#tafPanel .offer-header .offer-description{
+    padding:15px;
+    font-size:14px;
+    text-align:center
+}
+#tafPanel .offer-header .offer-description p{
+    margin-top:3em
+}
+#tafPanel .copylink{
+    border:1px solid #CDCDCD;
+    border-radius:5px;
+    padding:8px;
+    background-color:#fff;
+    margin:8px;
+    cursor:pointer
+}
+#tafPanel .copylink input{
+    border:0;
+    outline:0;
+    width:calc(100% - 50px);
+    text-overflow:ellipsis;
+    font-family:ProximaNova,Montserrat,sans-serif;
+    color:#657b90;
+    font-weight:400;
+    padding-right:8px;
+    box-sizing:border-box;
+    font-size:14px;
+    cursor:pointer
+}
+#tafPanel .copylink .copylink-button{
+    display:inline-block;
+    width:50px;
+    font-weight:700;
+    color:#23ae4a;
+    font-size:16px
+}
+#tafPanel .import-button-wrapper{
+    width:100%;
+    text-align:center
+}
+#tafPanel .import-button-wrapper .import-button{
+    border-radius:6px;
+    min-width:104px;
+    height:38px;
+    box-sizing:border-box;
+    line-height:38px;
+    text-align:center;
+    font-size:16px;
+    cursor:pointer;
+    margin:2px 8px;
+    padding:0 12px;
+    display:inline-block;
+    vertical-align:middle;
+    color:#fff
+}
+#tafPanel .import-button-wrapper .email,#tafPanel .import-button-wrapper .gmail{
+    background-color:#F75751
+}
+#tafPanel .import-button-wrapper .facebook{
+    background-color:#0074b8
+}
+#tafPanel .import-button-wrapper .twitter{
+    background-color:#00b0eb
+}
+#tafPanel .myoffer-links{
+    position:absolute;
+    bottom:6px;
+    left:16px;
+    right:16px;
+    font-size:12px;
+    color:#8b8b8b
+}
+#tafPanel .myoffer-links span{
+    cursor:pointer
+}
+#tafPanel .link-how{
+    float:right
+}
+#tafPanel .list-header:before{
+    width:50%
+
+}
+
+
+
+
+#footer {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    background-color: #fff;
+    height: 28px;
+    border-top: 1px solid #d3d3d3;
+    position: relative;
+    transition: .4s;
+    overflow: hidden;
+}
+
+#footer .footer_button {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    -ms-flex-grow: 1;
+    flex-grow: 1;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    height: 28px;
+    cursor: pointer;
+    transition: .5s;
+    color: darkgrey;
+    border-right: 1px solid #d3d3d3;
+    width: 126px;
+    box-sizing: border-box;
+}
+
+#footer .footer_button .footer_button_icon {
+    float: left;
+    font-size: 18px;
+    line-height: 28px;
+    margin-right: 4px;
+}
+
+
+.fa-gear:before, .fa-cog:before {
+    content: "\f013";
+}
+
+#footer .footer_button .footer_button_label {
+    font-size: 12px;
+    font-family: ProximaNova,Montserrat,sans-serif;
+    line-height: 28px;
+    display: inline-block;
+    float: left;
+}
+
+#footer .footer_button:last-child {
+    border-right: 0;
+}
+#footer .footer_button {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    -ms-flex-grow: 1;
+    flex-grow: 1;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    height: 28px;
+    cursor: pointer;
+    transition: .5s;
+    color: darkgrey;
+    border-right: 1px solid #d3d3d3;
+    width: 126px;
+    box-sizing: border-box;
+}
+
+#footer .footer_button .footer_button_icon {
+    float: left;
+    font-size: 18px;
+    line-height: 28px;
+    margin-right: 4px;
+}
+.fa {
+    /* display: inline-block; */
+    font: normal normal normal 14px/1 FontAwesome;
+    /* font-size: inherit; */
+    /* text-rendering: auto; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* transform: translate(0,0); */
+}
+
+.fa-question-circle:before {
+    content: "\f059";
+}
+
+
+#footer .footer_button .footer_button_label {
+    font-size: 12px;
+    font-family: ProximaNova,Montserrat,sans-serif;
+    line-height: 28px;
+    display: inline-block;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
