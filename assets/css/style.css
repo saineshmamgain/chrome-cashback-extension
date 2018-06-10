@@ -20,9 +20,9 @@ body {font-family:Tahoma, Geneva, sans-serif; font-size:12px;
 
 .ebates_wrap { width:380px; height:490px; border:solid 1px #ababab; border-radius:3px;}
 
-.header-wrap { background:#23ae4a; height:60px; padding:8px 6px; box-sizing:border-box;}
+.header-wrap { background:#FFA722; height:60px; padding:8px 6px; box-sizing:border-box;}
 .header-wrap .main-logo { float:left; width:161px; display:block;}
-.header-wrap .total-earn, .header-wrap .cash-back { width:88px; color:#FFF; font-size:12px; float:left; border-right:solid 1px #60c05d; text-align:center; height: 43px;}
+.header-wrap .total-earn, .header-wrap .cash-back { width:88px; color:#000; font-size:12px; float:left; border-right:solid 1px #60c05d; text-align:center; height: 43px;}
 .header-wrap .total-earn span, .header-wrap .cash-back span { font-size:15px; font-weight:bold; display:block; margin-bottom:3px;}
 
 .header-wrap .cash-back { width:118px; border:none;}

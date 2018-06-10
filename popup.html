@@ -1,19 +1,117 @@
-<!--
 <!DOCTYPE html>
 <html data-ng-app="CashBackExt" data-ng-csp data-ng-cloak>
-    <head>
-        <link rel="stylesheet" href="assets/css/lib/angular-material.min.css">
-    </head>
-    <body>
-    <div id="app" data-ng-controller="PageController">
-        <h3>{{message}}</h3>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ebates</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/lib/angular-material.min.css">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="ebates_wrap" id="app" data-ng-controller="PageController">
+    <header class="header-wrap">
+        <a href="#" class="main-logo"><img src="assets/images/backend-logo.png" width="94" height="43" alt=""/></a>
+        <div class="total-earn"><span>&#8377; {{ user_data.earned_cashback }}</span> Total Earned</div>
+        <div class="cash-back"><span>&#8377; {{ user_data.pending_cashback }}</span> Cash Back Pending</div>
+    </header>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="My Deals">
+                <md-content class="md-padding">
+                    <div id="mydeals">
+                        <div class="search-wrap">
+                            <input type="text" id="#" placeholder="Search Stores"/>
+                            <div class="search-icon">
+                                <img src="assets/images/search-icon.jpg" width="14" height="13" alt=""/>
+                            </div>
+                        </div>
+                        <h2 class="list-header"><span>Today Only: Book Your Summer Getaway</span></h2>
+                        <section class="flex-box">
+                            <div class="daily-deal-item deal-item" ng-repeat="store in stores">
+                                <div class="header">
+                                    <div class="store-logo"
+                                         style="background-image: url(https://static.ebates.com/image/store/icon/4767/icon-150x40.gif)"></div>
+                                    <div class="activate-button">{{ store.retailer_cashback }}</div>
+                                </div>
+                                <div class="deal-text">
+
+                                </div>
+                                <hr>
+                                <div class="footer" ng-if="false">
+                                    <span>Promo Code: </span><span class="code-value">UNIQUELYJOILS</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="My Orders">
+                <md-content class="md-padding">
+                    <div id="myorders">
+
+                        <div class="eb-module">
+                            <div style="margin: 25px;">We don't see any Orders yet.</div>
+                            <div>Please check back in a little bit - we should finish</div>
+                            <div>loading your Orders soon!</div>
+                        </div>
+
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Get &#8377;&#8377;">
+                <md-content class="md-padding">
+                    <div id="tafPanel">
+                        <div class="main-offer" style="">
+                            <div class="offer-header">
+                                <img class="refimg" height="130" width="380" src="assets/images/earn.gif">
+                                <div class="offer-description">Copy this link and send it to your friends</div>
+                            </div>
+                            <div class="copylink">
+                                <input id="referralLink" class="referralLink" readonly="" value="https://www.dealsbag.com">
+                                <div class="copylink-button">Copy</div>
+                                <span class="arrow-box">Link copied to clipboard</span>
+                            </div>
+                            <h2 class="list-header"><span>or</span></h2>
+                            <div class="import-button-wrapper">
+                                <span class="import-button email">Email</span>
+                                <span class="import-button facebook">Facebook</span>
+                                <span class="import-button twitter">Twitter</span>
+                            </div>
+                            <hr style="display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; width: 100%;">
+                            <div class="myoffer-links">
+                                <span class="link-status">See status of my referrals</span>
+                                <span class="link-how">How It works <i class="fa fa-question-circle"></i></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+
+
+    <div id="footer">
+        <div class="footer_button settings"><i class="fa fa-cog footer_button_icon"></i>
+            <span class="footer_button_label">Settings</span></div>
+        <div class="footer_button help">
+            <i class="fa fa-question-circle footer_button_icon"></i> <span class="footer_button_label">Help</span>
+        </div>
     </div>
-    <script src="assets/js/lib/angular.min.js"></script>
-    <script src="assets/js/lib/angular-animate.min.js"></script>
-    <script src="assets/js/lib/angular-aria.min.js"></script>
-    <script src="assets/js/lib/angular-messages.min.js"></script>
-    <script src="assets/js/lib/angular-material.min.js"></script>
-    <script src="assets/js/popup/app.js"></script>
-    <script src="assets/js/popup/page-controller.js"></script>
-    </body>
-</html>-->
+
+
+</div>
+<script src="assets/js/lib/angular.min.js"></script>
+<script src="assets/js/lib/angular-animate.min.js"></script>
+<script src="assets/js/lib/angular-aria.min.js"></script>
+<script src="assets/js/lib/angular-messages.min.js"></script>
+<script src="assets/js/lib/angular-material.min.js"></script>
+<script src="assets/js/popup/app.js"></script>
+<script src="assets/js/popup/page-controller.js"></script>
+
+</body>
+</html>

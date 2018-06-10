@@ -10,6 +10,7 @@
   },
   "background": {
     "scripts": [
+      "assets/js/lib/jquery.min.js",
       "background.js"
     ]
   },
