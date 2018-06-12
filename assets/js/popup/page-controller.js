@@ -9,6 +9,10 @@ function PageController($scope){
     $scope.bgurl= function(value){
         return {"background-image": "url("+value+")"};
     };
+    $scope.goToStore=function(url){
+        chrome.tabs.create({url: url});
+        return false;
+    };
     chrome.runtime.sendMessage({action: "GetStores"}, function (response) {
         if (response.status!==undefined && response.status === 1) {
             $scope.stores = response.stores;
@@ -18,5 +22,5 @@ function PageController($scope){
         if (response.status !== undefined && response.status===1){
             $scope.user_data = response.user_data;
         }
-    })
+    });
 }

@@ -32,7 +32,7 @@
                             <div class="daily-deal-item deal-item" ng-repeat="store in stores">
                                 <div class="header">
                                     <div class="store-logo" ng-style="bgurl(store.retailer_image)"></div>
-                                    <div class="activate-button">{{ store.retailer_cashback }}</div>
+                                    <div class="activate-button" ng-click="goToStore(store.retailer_cashback_url)">{{ store.retailer_cashback }}</div>
                                 </div>
                                 <div class="deal-text">
 
