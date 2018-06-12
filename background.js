@@ -1,7 +1,8 @@
-const BASE_URL = 'http://ec2-34-203-247-128.compute-1.amazonaws.com:3000/';
-const STORE_LIST = 'users/storeList';
+const BASE_URL = 'https://www.whitecashback.in/';
+const STORE_LIST = 'extension-service/storeDetails';
 const STORE_DETAILS = 'users/storeDetails';
-const CASH_BACK_URL = 'https://www.whitecahback.in/';
+const CASH_BACK_URL = 'https://www.whitecashback.in/extension-service/goTostore?id=';
+const IMAGE_URL = 'https://res.cloudinary.com/whitecashback/image/upload/logo/';
 const $ = window.jQuery;
 
 localStorage.setItem('logged_in_user', '1');
@@ -19,25 +20,20 @@ let user_data = {
 
 $.ajax({
     url: BASE_URL + STORE_LIST,
-    data : {
-        user_id: user_id
-    },
-    type: 'POST',
+    type: 'GET',
     dataType: 'JSON',
     success: function (response) {
         let storesToSave = [];
-        let stores = response.data.filter(function (a, b) {
-            return a.retailer_status==='active';
-        });
+        let stores = response.storeDetails;
         $.each(stores,function (a, b) {
             let data = {};
-            data['retailer_id']=b.retailer_id;
-            data['retailer_image']=b.newimg;
+            data['retailer_id']=b.id;
+            data['retailer_image']=IMAGE_URL + b.image;
             data['retailer_title']=b.title;
-            data['retailer_url']=b.url;
+            data['retailer_url']=b.website;
             data['retailer_cashback']=b.cashback;
             data['retailer_old_cashback']=b.oldCashback;
-            data['retailer_cashback_url']=CASH_BACK_URL;
+            data['retailer_cashback_url']=CASH_BACK_URL + b.id;
             storesToSave.push(data);
         });
         localStorage.setItem('all_stores', JSON.stringify(storesToSave));

@@ -6,6 +6,9 @@ function PageController($scope){
         earned_cashback: "0.00",
         pending_cashback: "0.00"
     };
+    $scope.bgurl= function(value){
+        return {"background-image": "url("+value+")"};
+    };
     chrome.runtime.sendMessage({action: "GetStores"}, function (response) {
         if (response.status!==undefined && response.status === 1) {
             $scope.stores = response.stores;

@@ -3,11 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>ebates</title>
-
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/lib/angular-material.min.css">
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -33,8 +31,7 @@
                         <section class="flex-box">
                             <div class="daily-deal-item deal-item" ng-repeat="store in stores">
                                 <div class="header">
-                                    <div class="store-logo"
-                                         style="background-image: url(https://static.ebates.com/image/store/icon/4767/icon-150x40.gif)"></div>
+                                    <div class="store-logo" ng-style="bgurl(store.retailer_image)"></div>
                                     <div class="activate-button">{{ store.retailer_cashback }}</div>
                                 </div>
                                 <div class="deal-text">
