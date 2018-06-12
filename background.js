@@ -36,7 +36,7 @@ $.ajax({
             data['retailer_cashback_url']=CASH_BACK_URL + b.id;
             storesToSave.push(data);
         });
-        localStorage.setItem('all_stores', JSON.stringify(storesToSave));
+        chrome.storage.local.set({all_stores:storesToSave});
     }
 });
 
@@ -49,18 +49,6 @@ function getRandomArrayElements(arr, count) {
         shuffled[i] = temp;
     }
     return shuffled.slice(min);
-}
-
-function findStoreFromHost(host){
-    let stores = JSON.parse(localStorage.getItem('all_stores'));
-    let store = stores.filter(function(a, b){
-        return a.retailer_url.indexOf(host)!== -1;
-    });
-
-    if (store.length > 0) {
-        return store[0];
-    }
-    return [];
 }
 
 chrome.runtime.onMessage.addListener( function(request,sender,sendResponse){
@@ -89,26 +77,36 @@ chrome.runtime.onMessage.addListener( function(request,sender,sendResponse){
             user_data: user_data
         })
     }else if (request.action === 'GetHostDeals') {
-        let store = findStoreFromHost(request.host);
-        let openedStores = sessionStorage.getItem('opened_stores');
-        if (openedStores !== null) {
-            openedStores = JSON.parse(openedStores);
-        }else {
-            openedStores=[];
-        }
-        if (store.retailer_id!==undefined && store.retailer_id > 0){
-            if (openedStores.indexOf(store.retailer_id) === -1) {
-                chrome.tabs.create({
-                    url: CASH_BACK_URL + store.retailer_id,
-                    active: false
-                }, function (tab) {
-                    setTimeout(function () {
-                        chrome.tabs.remove(tab.id);
-                    },15000)
-                });
-                openedStores.push(store.retailer_id);
-                sessionStorage.setItem('opened_stores', JSON.stringify(openedStores));
+        chrome.storage.local.get(['all_stores'],function (result) {
+            let store = result.all_stores.filter(function(a, b){
+                return a.retailer_url.indexOf(request.host)!== -1;
+            });
+
+            if (store.length > 0) {
+                store =  store[0];
+            }else {
+                store = [];
             }
-        }
+            let openedStores = sessionStorage.getItem('opened_stores');
+            if (openedStores !== null) {
+                openedStores = JSON.parse(openedStores);
+            }else {
+                openedStores=[];
+            }
+            if (store.retailer_id!==undefined && store.retailer_id > 0){
+                if (openedStores.indexOf(store.retailer_id) === -1) {
+                    chrome.tabs.create({
+                        url: CASH_BACK_URL + store.retailer_id,
+                        active: false
+                    }, function (tab) {
+                        setTimeout(function () {
+                            chrome.tabs.remove(tab.id);
+                        },15000)
+                    });
+                    openedStores.push(store.retailer_id);
+                    sessionStorage.setItem('opened_stores', JSON.stringify(openedStores));
+                }
+            }
+        });
     }
 });
