@@ -1,5 +1,4 @@
-const DBC_CURRENT_URL = window.location;
-
+const DBC_CURRENT_URL = window.location.href;
 function dbc_extractHostname(url) {
     let hostname;
     if (url.indexOf("://") > -1) {
