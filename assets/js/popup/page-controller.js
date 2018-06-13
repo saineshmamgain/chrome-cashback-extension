@@ -14,12 +14,13 @@ function PageController($scope){
         return false;
     };
     chrome.runtime.sendMessage({action: "GetStores"}, function (response) {
-        if (response.status!==undefined && response.status === 1) {
+        console.log(response);
+        if (response !== undefined && response.status === 1) {
             $scope.stores = response.stores;
         }
     });
     chrome.runtime.sendMessage({action: "GetUserData"}, function (response) {
-        if (response.status !== undefined && response.status===1){
+        if (response !== undefined && response.status===1){
             $scope.user_data = response.user_data;
         }
     });

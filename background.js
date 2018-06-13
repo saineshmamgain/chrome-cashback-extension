@@ -53,24 +53,21 @@ function getRandomArrayElements(arr, count) {
 
 chrome.runtime.onMessage.addListener( function(request,sender,sendResponse){
     if (request.action === 'GetStores') {
-        let stores = [];
-        try{
-            stores = JSON.parse(localStorage.getItem('all_stores'));
-        }catch (e) {
-            stores = []
-        }
-        if (stores.length > 0) {
-            let elm = getRandomArrayElements(stores,10);
-            sendResponse({
-                status: 1,
-                stores: elm
-            })
-        }else{
-            sendResponse({
-                status: 1,
-                stores: []
-            })
-        }
+        chrome.storage.local.get(['all_stores'],function (result) {
+            let stores = result.all_stores;
+            if (stores !== null && stores.length > 0) {
+                let elm = getRandomArrayElements(stores,10);
+                sendResponse({
+                    status: 1,
+                    stores: elm
+                });
+            }else{
+                sendResponse({
+                    status: 1,
+                    stores: []
+                });
+            }
+        });
     }else if (request.action === 'GetUserData') {
         sendResponse({
             status: 1,
@@ -82,7 +79,7 @@ chrome.runtime.onMessage.addListener( function(request,sender,sendResponse){
                 return a.retailer_url.indexOf(request.host)!== -1;
             });
 
-            if (store.length > 0) {
+            if (store !== null && store.length > 0) {
                 store =  store[0];
             }else {
                 store = [];
@@ -107,6 +104,7 @@ chrome.runtime.onMessage.addListener( function(request,sender,sendResponse){
                     sessionStorage.setItem('opened_stores', JSON.stringify(openedStores));
                 }
             }
+            sendResponse('message received')
         });
     }
 });
